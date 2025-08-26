@@ -1,0 +1,17 @@
+.productPage {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.productCard {
+  /* Fiks at knappene er på samme plass på hvert kort plis */
+  background-color: linen;
+  margin: 5px;
+  padding: 5px;
+  height: 400px;
+  width: 250;
+}
+
+.productImg {
+  width: 200px;
+}
