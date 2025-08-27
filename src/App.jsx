@@ -1,17 +1,21 @@
 import "./App.css";
-import Card from "./Card";
-import Filters from "./Filters";
-import { productArray } from "./Data";
+import Card from "./components/Card";
+import FilterButtons from "./components/FilterButtons";
+import { productArray } from "./components/Data";
 import { useState } from "react";
 
 function App() {
-  const [productItems, setProductItems] = useState(productArray);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
+  const displayedProducts = selectedCategory
+    ? productArray.filter((product) => product.category === selectedCategory)
+    : productArray;
+    
   return (
-    <>
-      <Filters productItems={productItems} />
-      <Card productItems={productItems} />
-    </>
+    <main>
+      <FilterButtons category={setSelectedCategory} />
+      <Card products={displayedProducts} />
+    </main>
   );
 }
 

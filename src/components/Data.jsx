@@ -12,6 +12,18 @@ export const productArray = [
     category: "burger",
   },
   {
+    name: "Vegansk burger",
+    img: "./burger.png",
+    price: 119,
+    category: "burger",
+  },
+  {
+    name: "Bacon-Cheeseburger",
+    img: "./burger.png",
+    price: 129,
+    category: "burger",
+  },
+  {
     name: "Baconpølse",
     img: "./hotdog.png",
     price: 59,
