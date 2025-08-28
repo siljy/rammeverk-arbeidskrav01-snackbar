@@ -1,6 +1,6 @@
 import "./Card.css";
 
-export default function Card({ products }) {
+export default function Card({ products, addToCart }) {
   return (
     <section className="productPage">
       {products.map((product) => (
@@ -8,7 +8,7 @@ export default function Card({ products }) {
           <h2>{product.name}</h2>
           <img className="productImg" src={product.img} alt={product.name} />
           <p>{product.price} KR</p>
-          <button>Kjøp</button>
+          <button onClick={() => addToCart(product)}>Kjøp</button>
         </div>
       ))}
     </section>

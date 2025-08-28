@@ -18,7 +18,7 @@ export const productArray = [
     category: "burger",
   },
   {
-    name: "Bacon-Cheeseburger",
+    name: "Baconburger",
     img: "./burger.png",
     price: 129,
     category: "burger",
