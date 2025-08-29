@@ -8,11 +8,13 @@ export default function ShoppingCart({ shoppingCart }) {
         ) : (
           shoppingCart.map((cartItem, index) => (
             <div key={index}>
-              <h3>{cartItem.name}</h3>
-              <p>{cartItem.price}</p>
+              <h3>{cartItem.product.name}</h3>
+              <p>Pris: {cartItem.product.price} KR</p>
+              <p>Antall: {cartItem.quantity}</p>
             </div>
           ))
         )}
+        <h3>Sum: {}</h3>
       </article>
 
       {/* Kun vise handlekurven med denne komponenten? Kanskje den må regne ut sum også */}

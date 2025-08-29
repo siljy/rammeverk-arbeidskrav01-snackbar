@@ -17,17 +17,21 @@ function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   function addToCart(newProduct) {
-    setShoppingCart([...shoppingCart, newProduct]);
+    setShoppingCart((prevCart) => {
+      const existingItem = prevCart.find(
+        (item) => item.product.name === newProduct.name
+      );
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.product.name === newProduct.name
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevCart, { product: newProduct, quantity: 1 }];
+      }
+    });
   }
- 
-
-  // useEffect(() => {
-  //   if (!shoppingCart) {
-  //     console.log("Handlekurven er tom");
-  //   } else {
-  //     console.log("Handlekurven består av", shoppingCart);
-  //   }
-  // }, [shoppingCart]);
 
   return (
     <main>
