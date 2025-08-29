@@ -1,4 +1,10 @@
 export default function ShoppingCart({ shoppingCart }) {
+  let total = 0;
+
+  shoppingCart.forEach((item) => {
+    total += item.product.price * item.quantity;
+  });
+
   return (
     <section>
       <h2>Handlekurv</h2>
@@ -14,13 +20,8 @@ export default function ShoppingCart({ shoppingCart }) {
             </div>
           ))
         )}
-        <h3>Sum: {}</h3>
+        <h3>Sum: {total}</h3>
       </article>
-
-      {/* Kun vise handlekurven med denne komponenten? Kanskje den må regne ut sum også */}
-      {/* Må ta imot info om varen og antall klikk */}
-      {/* Navn på produkt, antall, sum */}
-      {/* Finne ut hvordan legge antall sammen, ikke lage duplikater */}
     </section>
   );
 }
