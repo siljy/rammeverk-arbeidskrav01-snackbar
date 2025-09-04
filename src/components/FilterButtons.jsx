@@ -1,6 +1,8 @@
+
+
 export default function FilterButtons({ category }) {
   return (
-    <article>
+    <article className="filterButtons">
       <button onClick={() => category(null)}>Vis alt</button>
       <button onClick={() => category("burger")}>Burger</button>
       <button onClick={() => category("hotdog")}>Pølse</button>

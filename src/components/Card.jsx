@@ -11,7 +11,7 @@ export default function Card({ products }) {
           <h2>{product.name}</h2>
           <img className="productImg" src={product.img} alt={product.name} />
           <p>{product.price} KR</p>
-          <button onClick={() => addToCart(product)}>Kjøp</button>
+          <button className="addToCartBtn" onClick={() => addToCart(product)}>Kjøp</button>
         </div>
       ))}
     </article>

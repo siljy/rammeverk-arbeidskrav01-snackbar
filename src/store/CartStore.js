@@ -29,3 +29,7 @@ export const useCartStore = create((set) => ({
       cartItems: state.cartItems.filter((item) => item.product.id !== id),
     })),
 }));
+
+// export const useQuantityStore = create((set) => ({
+
+// }))

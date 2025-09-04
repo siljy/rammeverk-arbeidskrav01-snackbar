@@ -1,6 +1,23 @@
+.cart {
+  border: 0.2rem solid lightgrey;
+  background-color: rgb(236, 236, 236);
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  width: 200px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
 .deleteBtn {
   background-color: rgb(180, 35, 35);
-  padding: 0.4em 1em;
+  padding: 0.2em 0.8em;
   color: white;
   font-size: 0.8em;
+  padding: 0.6em 1.2em;
+}
+
+.editAmountBtn {
+  font-size: 0.8rem;
+  background-color: linen;
+  border: 0.1rem solid #242424;
 }

@@ -4,6 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+main {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
 
 /* .logo {
   height: 6em;

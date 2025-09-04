@@ -3,6 +3,7 @@ import FilterButtons from "./FilterButtons";
 import { productArray } from "./Data";
 import { useState } from "react";
 
+
 export default function ProductPage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
