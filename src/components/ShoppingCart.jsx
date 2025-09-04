@@ -1,7 +1,11 @@
-export default function ShoppingCart({ shoppingCart }) {
+import { useCartStore } from "../store/CartStore";
+import "./ShoppingCart.css";
+
+export default function ShoppingCart() {
+  const cartItems = useCartStore((state) => state.cartItems);
   let total = 0;
 
-  shoppingCart.forEach((item) => {
+  cartItems.forEach((item) => {
     total += item.product.price * item.quantity;
   });
 
@@ -9,14 +13,16 @@ export default function ShoppingCart({ shoppingCart }) {
     <section>
       <h2>Handlekurv</h2>
       <article>
-        {shoppingCart.length == 0 ? (
+        {cartItems.length == 0 ? (
           <p>Handlekurven din er tom</p>
         ) : (
-          shoppingCart.map((cartItem, index) => (
+          cartItems.map((cartItem, index) => (
             <div key={index}>
               <h3>{cartItem.product.name}</h3>
               <p>Pris: {cartItem.product.price} KR</p>
               <p>Antall: {cartItem.quantity}</p>
+
+              <button className="deleteBtn">Fjern vare</button>
             </div>
           ))
         )}

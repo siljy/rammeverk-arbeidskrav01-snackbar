@@ -1,6 +1,9 @@
 import "./Card.css";
+import { useCartStore } from "../store/CartStore";
 
-export default function Card({ products, addToCart }) {
+export default function Card({ products }) {
+  const addToCart = useCartStore((state) => state.addToCart);
+
   return (
     <section className="productPage">
       {products.map((product) => (
