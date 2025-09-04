@@ -3,6 +3,8 @@ import "./ShoppingCart.css";
 
 export default function ShoppingCart() {
   const cartItems = useCartStore((state) => state.cartItems);
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
+
   let total = 0;
 
   cartItems.forEach((item) => {
@@ -22,7 +24,12 @@ export default function ShoppingCart() {
               <p>Pris: {cartItem.product.price} KR</p>
               <p>Antall: {cartItem.quantity}</p>
 
-              <button className="deleteBtn">Fjern vare</button>
+              <button
+                className="deleteBtn"
+                onClick={() => removeFromCart(cartItem.product.id)}
+              >
+                Fjern vare
+              </button>
             </div>
           ))
         )}
