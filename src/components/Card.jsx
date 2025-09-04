@@ -5,7 +5,7 @@ export default function Card({ products }) {
   const addToCart = useCartStore((state) => state.addToCart);
 
   return (
-    <section className="productPage">
+    <article className="products">
       {products.map((product) => (
         <div key={product.name} className="productCard">
           <h2>{product.name}</h2>
@@ -14,6 +14,6 @@ export default function Card({ products }) {
           <button onClick={() => addToCart(product)}>Kjøp</button>
         </div>
       ))}
-    </section>
+    </article>
   );
 }

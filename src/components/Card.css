@@ -1,4 +1,4 @@
-.productPage {
+.products {
   display: grid;
   /* Hadde vært litt kult å legge til en if og to forskjellige klasser med grid, slik at hvis det er
   tre objekter så er det en grid på 3 kolonner, 4 om det er fire osv. slik at det er midtstilt og penere<3 
