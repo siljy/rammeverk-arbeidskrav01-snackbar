@@ -17,7 +17,8 @@
 }
 
 .editAmountBtn {
-  font-size: 0.8rem;
-  background-color: linen;
+  font-size: 1rem;
+  padding: 0.2rem 0.6rem;
+  background-color: white;
   border: 0.1rem solid #242424;
 }

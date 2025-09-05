@@ -4,6 +4,8 @@ import "./ShoppingCart.css";
 export default function ShoppingCart() {
   const cartItems = useCartStore((state) => state.cartItems);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const increase = useCartStore((state) => state.increase);
+  const decrease = useCartStore((state) => state.decrease);
 
   let total = 0;
 
@@ -15,7 +17,7 @@ export default function ShoppingCart() {
     <aside className="cart">
       <h2>Handlekurv</h2>
       <h3>Sum: {total} KR</h3>
-      <article>
+      <div>
         {cartItems.length == 0 ? (
           <p>Handlekurven din er tom, trykk 'Kjøp' for å legge til varen</p>
         ) : (
@@ -24,10 +26,20 @@ export default function ShoppingCart() {
               <h4>{cartItem.product.name}</h4>
               <p>Pris: {cartItem.product.price} KR</p>
               <p>Antall: {cartItem.quantity}</p>
-              {/* <div>
-                <button className="editAmountBtn">-</button>
-                <button className="editAmountBtn">+</button>
-              </div> */}
+              <div>
+                <button
+                  className="editAmountBtn"
+                  onClick={() => decrease(cartItem.product.id)}
+                >
+                  -
+                </button>
+                <button
+                  className="editAmountBtn"
+                  onClick={() => increase(cartItem.product.id)}
+                >
+                  +
+                </button>
+              </div>
               <button
                 className="deleteBtn"
                 onClick={() => removeFromCart(cartItem.product.id)}
@@ -37,7 +49,7 @@ export default function ShoppingCart() {
             </div>
           ))
         )}
-      </article>
+      </div>
     </aside>
   );
 }

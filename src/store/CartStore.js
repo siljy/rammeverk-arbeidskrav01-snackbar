@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export const useCartStore = create((set) => ({
+export const useCartStore = create((set, get) => ({
   cartItems: [],
 
   addToCart: (newItem) => {
@@ -28,8 +28,44 @@ export const useCartStore = create((set) => ({
     set((state) => ({
       cartItems: state.cartItems.filter((item) => item.product.id !== id),
     })),
+
+  increase: (id) => {
+    set((state) => {
+      const updatedCart = state.cartItems.map((item) => {
+        if (item.product.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        } else {
+          return item;
+        }
+      });
+      return { cartItems: updatedCart };
+    });
+  },
+
+  decrease: (id) => {
+    set((state) => {
+      const existingItem = state.cartItems.find(
+        (item) => item.product.id === id
+      );
+
+      if (existingItem && existingItem.quantity <= 1) {
+        alert(
+          "Kan ikke fjerne flere av denne varen, så varen fjernes fra din handlekurv"
+        );
+        return {
+          cartItems: state.cartItems.filter((item) => item.product.id !== id),
+        };
+      }
+      return {
+        cartItems: state.cartItems.map((item) =>
+          item.product.id === id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        ),
+      };
+    });
+  },
 }));
-
-// export const useQuantityStore = create((set) => ({
-
-// }))
