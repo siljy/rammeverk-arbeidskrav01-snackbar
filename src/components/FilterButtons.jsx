@@ -1,5 +1,3 @@
-
-
 export default function FilterButtons({ category }) {
   return (
     <article className="filterButtons">
